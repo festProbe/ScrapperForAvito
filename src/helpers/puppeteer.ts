@@ -3,7 +3,7 @@ import { proxyRequest } from 'puppeteer-proxy';
 import { LaunchPuppeteerOpts, PagePuppeteerOpts } from '../types/puppeteer';
 
 export const LAUNCH_PUPPETEER_OPTS: LaunchPuppeteerOpts = {
-	headless: false,
+	//headless: false,  // Для демонстрации происходящего в браузере
 	ignoreHTTPSErrors: true,
 	args: [
 		'--no-sandbox',
