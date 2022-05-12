@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import { cookies } from '../cookies/cookies';
 import { proxyRequest } from 'puppeteer-proxy';
 import { LaunchPuppeteerOpts, PagePuppeteerOpts } from '../types/puppeteer';
 
@@ -54,9 +55,12 @@ export default class PuppeteerHandler {
 					request,
 				});
 			});*/
-
+			for (const cookie of cookies) {
+				await page.setCookie(cookie);
+			}
 			await page.goto(url, PAGE_PUPPETEER_OPTS);
 			const content = await page.content();
+			page.close();
 			return content;
 		}
 		catch (err) {
@@ -69,6 +73,9 @@ export default class PuppeteerHandler {
 			const page = await this.browser.newPage();
 			const m = puppeteer.devices['Galaxy S9+'];
 			await page.emulate(m);
+			for (const cookie of cookies) {
+				await page.setCookie(cookie);
+			}
 			await page.goto(url, PAGE_PUPPETEER_OPTS);
 			const showPhoneBtn = await page.evaluate(() => document.querySelector('[data-marker="item-contact-bar/call"]'));
 			if (showPhoneBtn !== null) {
@@ -77,14 +84,13 @@ export default class PuppeteerHandler {
 				await page.waitForSelector('[data-marker="phone-popup/phone-number"]');
 			}
 			const content = await page.content();
+			page.close();
 			return content;
 		}
 		catch (err) {
 			console.log(err);
 			console.log('Ошибка получения данных из объявления: ' + url)
 			advertisementsWithError.push(url);
-
 		}
 	};
-
 }

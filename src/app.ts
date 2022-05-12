@@ -1,42 +1,22 @@
-import dayjs from 'dayjs';
-import async from 'async';
-import RelativeTime from "dayjs/plugin/relativeTime"
-import getPagesCount from "./handlers/getPagesCount";
-import getDataFromAdv from "./handlers/getPhoneHandler";
+import 'dayjs/locale/ru';
+import getPagesCount from "./handlers/get-pages-count";
+import getDataFromAdv from "./handlers/get-data-from-adv";
 import PuppeteerHandler from "./helpers/puppeteer";
 import { arrayFromLenght } from "./helpers/common";
-import { concurrency, SITE } from "./consts/consts";
-import { Done, Task } from './types/async-queue';
+import { taskQueue } from './helpers/async-queue';
+import { ADVERTS_FOR_PARSING, ADVERTS_ON_PAGE } from './consts/consts';
 
-dayjs.extend(RelativeTime);
+export const p = new PuppeteerHandler();
 
-const startTime = dayjs();
-
-const p = new PuppeteerHandler();
-
-const taskQueue = async.queue<Task, Done>(async (task: Task, done: Done) => {
-	try {
-		await task();
-		console.log('Задача завершена, осталось ' + taskQueue.length() + ' задач\n')
-		done();
-	} catch (err) {
-		throw err;
-	}
-}, concurrency);
-
-taskQueue.drain(function () {
-	console.log(`Все задачи завершены. Время выполнения - ${startTime.toNow()}`)
-	p.closeBrowser();
-	process.exit();
-});
+const PAGES = Math.ceil(ADVERTS_FOR_PARSING / ADVERTS_ON_PAGE);
 
 (async function main() {
 	try {
-		console.log('Начинаю работу с данными. Получаю количество страниц...');
-		const pagesCount: number = await getPagesCount(p, SITE);
-		console.log(`Количество страниц - ${pagesCount}\n`);
+		//console.log('Начинаю работу с данными. Получаю количество страниц...');
+		//const pagesCount: number = await getPagesCount(p, SITE);
+		//console.log(`Количество страниц - ${pagesCount}\n`);
 		console.log('Получаю данные из объявлений...');
-		arrayFromLenght(pagesCount).forEach((page) => {
+		arrayFromLenght(PAGES).forEach((page) => {
 			taskQueue.push(
 				() => getDataFromAdv(p, page),
 				err => {

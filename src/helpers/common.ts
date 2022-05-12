@@ -23,14 +23,9 @@ export function transformPrice(price: string) {
 	return transfotmedPrice;
 }
 
-export function transformPhone(price: string) {
-	let transformedPrice;
-	if (price === 'Цена не указана' || price === 'Бесплатно') {
-		transformedPrice = 0;
-	} else {
-		const refExp = /\d/g;
-		transformedPrice = price.match(refExp);
-		transformedPrice === null ? 0 : transformedPrice.join('');
-	}
-	return transformedPrice;
+export function transformToOnlyNumbers(string: string) {
+	let numbersFromString: string;
+	const refExp = /\d/g;
+	numbersFromString = string.match(refExp).join('');
+	return numbersFromString;
 }

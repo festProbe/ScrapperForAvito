@@ -2,10 +2,11 @@ import cherio from "cheerio";
 import dayjs from "dayjs";
 import S from 'string';
 import PuppeteerHandler from "../helpers/puppeteer";
-import { SITE } from "../consts/consts";
-import { transformPeriod, transformPhone, transformPrice } from "../helpers/common";
+import { ADVERTS_FOR_PARSING, SITE } from "../consts/consts";
+import { transformPeriod, transformToOnlyNumbers, transformPrice } from "../helpers/common";
 import { Advert } from "../types/advertisement";
-import { saveData } from "./saveData";
+import { saveData } from "./save-data";
+import { taskQueue } from "../helpers/async-queue";
 
 export default async function getDataFromAdv(p: PuppeteerHandler, page: number) {
 	console.log(`Получаю данные со страницы ${page}`);
@@ -26,6 +27,7 @@ export default async function getDataFromAdv(p: PuppeteerHandler, page: number) 
 		const author = $(header).find('[class*=style-title-]').text();
 
 		advertisements.push({
+			id: '',
 			title,
 			description,
 			url: prefixURL + url,
@@ -38,19 +40,35 @@ export default async function getDataFromAdv(p: PuppeteerHandler, page: number) 
 	await getPhone(p, advertisements);
 }
 
-async function getPhone(p: PuppeteerHandler, data: Advert[]) {
-	for (const advert of data) {
-		let phone: string;
-		if (advert.author === '') {
-			phone = '';
-		} else {
-			const content = await p.getPhone(advert.url);
-			if (content) {
-				const $ = cherio.load(content);
-				phone = $('[data-marker="phone-popup/phone-number"]').text();
-				phone = transformPhone(phone);
-			}
-		}
-		await saveData(advert);
+const task = async (advert: Advert, p: PuppeteerHandler) => {
+	const { url } = advert;
+	let phone = '';
+	let advId = '';
+	const content = await p.getPhone(url);
+	if (content) {
+		const $ = cherio.load(content);
+		phone = $('[data-marker="phone-popup/phone-number"]').text();
+		phone = transformToOnlyNumbers(phone);
+		advId = $('[data-marker="item-stats/timestamp"]').text();
+		advId = transformToOnlyNumbers(advId);
 	}
+	advert.phone = phone;
+	advert.id = advId;
+	await saveData(advert);
+}
+
+
+function getPhone(p: PuppeteerHandler, data: Advert[]) {
+	data = data.slice(0, ADVERTS_FOR_PARSING);
+	data.forEach((advert) => {
+		taskQueue.push(
+			() => task(advert, p),
+			err => {
+				if (err) {
+					console.log(err);
+					throw new Error(`Ошибка получения данных из объявления ${advert.url}`)
+				}
+			}
+		)
+	});
 }
