@@ -21,7 +21,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "_buzz_fpc",
-		"value": "JTdCJTIycGF0aCUyMiUzQSUyMiUyRiUyMiUyQyUyMmRvbWFpbiUyMiUzQSUyMi53d3cuYXZpdG8ucnUlMjIlMkMlMjJleHBpcmVzJTIyJTNBJTIyRnJpJTJDJTIwMTIlMjBNYXklMjAyMDIzJTIwMDklM0E1NiUzQTEwJTIwR01UJTIyJTJDJTIyU2FtZVNpdGUlMjIlM0ElMjJMYXglMjIlMkMlMjJ2YWx1ZSUyMiUzQSUyMiU3QiU1QyUyMnZhbHVlJTVDJTIyJTNBJTVDJTIyNjMyOWY5NDY3NmJiM2EyOWZjOTYxYTc5YmQ4OGQ5ZjglNUMlMjIlMkMlNUMlMjJmcGpzRm9ybWF0JTVDJTIyJTNBdHJ1ZSU3RCUyMiU3RA==",
+		"value": "JTdCJTIycGF0aCUyMiUzQSUyMiUyRiUyMiUyQyUyMmRvbWFpbiUyMiUzQSUyMi53d3cuYXZpdG8ucnUlMjIlMkMlMjJleHBpcmVzJTIyJTNBJTIyTW9uJTJDJTIwMTUlMjBNYXklMjAyMDIzJTIwMjAlM0EzMSUzQTA4JTIwR01UJTIyJTJDJTIyU2FtZVNpdGUlMjIlM0ElMjJMYXglMjIlMkMlMjJ2YWx1ZSUyMiUzQSUyMiU3QiU1QyUyMnZhbHVlJTVDJTIyJTNBJTVDJTIyNjMyOWY5NDY3NmJiM2EyOWZjOTYxYTc5YmQ4OGQ5ZjglNUMlMjIlMkMlNUMlMjJmcGpzRm9ybWF0JTVDJTIyJTNBdHJ1ZSU3RCUyMiU3RA==",
 		"domain": ".www.avito.ru",
 		"path": "/",
 		"secure": false,
@@ -30,7 +30,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "ft",
-		"value": "\"1W+oZuUZ30h2YsaC2IBzUiV4hfynfmSGcemXr0atm1x0akLKhHBqVV3+Ik3uf1I8OZxYvd/06Vu0ZEof7BBY/AfWFoGjPq28YzLqdeD/8bjJ++dOkDgsraf8fo255lqosK7Uhf4wI2iKd44xcE5E2aHJzXclqkYqzjulZwPQb3wOaBZwcBxFWSeGzEeGtS6g\"",
+		"value": "\"9cRo6v4zdtO6G86OaryHnx45s9/BwccdDenAOxLzhVwA9DzzRidpdVfaVrtTkN21moScvMEw1rhZExqorNBGkQDk50M39PWDH1rgeiogUxJlohFPvQFiCMLnC27MEu5LZzArQ4uyMsUw8qryZvJdNXrQ6bfuIEWAvVJZoXzMiAvq+iQDWl5rkM0snI9qT1Fv\"",
 		"domain": ".avito.ru",
 		"path": "/",
 		"secure": false,
@@ -38,7 +38,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "_gid",
-		"value": "GA1.2.1012197565.1652278975",
+		"value": "GA1.2.1449654459.1652646108",
 		"domain": ".avito.ru",
 		"path": "/",
 		"secure": false,
@@ -46,7 +46,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "_ga_9E363E7BES",
-		"value": "GS1.1.1652349364.3.1.1652349367.57",
+		"value": "GS1.1.1652646105.10.1.1652646665.45",
 		"domain": ".avito.ru",
 		"path": "/",
 		"secure": false,
@@ -66,6 +66,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 		"domain": "www.avito.ru",
 		"path": "/",
 		"secure": false,
+		"httpOnly": false,
 	},
 	{
 		"name": "adrdel",
@@ -94,7 +95,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "f",
-		"value": "5.32e32548b6f3e978f3511a92784ad5d9d13696603adaf27cd13696603adaf27cd13696603adaf27cd13696603adaf27ca84b1e3348d3e306a84b1e3348d3e306a84b1e3348d3e306d13696603adaf27c0ca31d77128ba16584404b4befdbcb2e46b8ae4e81acb9fa1a2a574992f83a9246b8ae4e81acb9fad99271d186dc1cd0e992ad2cc54b8aa8fbcd99d4b9f4cbdabcc8809df8ce07f640e3fb81381f3591956cdff3d4067aa559b49948619279117b0d53c7afc06d0b2ebf3cb6fd35a0acba0ac8037e2b74f90df103df0c26013a7b0d53c7afc06d0bba0ac8037e2b74f92da10fb74cac1eab71e7cb57bbcb8e0f71e7cb57bbcb8e0f71e7cb57bbcb8e0f0df103df0c26013a037e1fbb3ea05095de87ad3b397f946b4c41e97fe93686adb7ce3c4a759419abc9d3e49d2015ecaa02c730c0109b9fbb1ef6e77b994771b7ecad4a27389d318fd21ab7cd585086e0e13647d531665c4b23e6c8448ebb3380e2415097439d404746b8ae4e81acb9fa786047a80c779d5146b8ae4e81acb9fa97860b1ec48200fe2da10fb74cac1eab2da10fb74cac1eabd1d953d27484fd81666d5156b5a01ea6",
+		"value": "5.32e32548b6f3e978f3511a92784ad5d9d13696603adaf27cd13696603adaf27cd13696603adaf27cd13696603adaf27ca84b1e3348d3e306a84b1e3348d3e306a84b1e3348d3e306d13696603adaf27c0ca31d77128ba16584404b4befdbcb2e46b8ae4e81acb9fa1a2a574992f83a9246b8ae4e81acb9fad99271d186dc1cd0e992ad2cc54b8aa8fbcd99d4b9f4cbdabcc8809df8ce07f640e3fb81381f3591956cdff3d4067aa572a0378f24244a7a2da10fb74cac1eab2da10fb74cac1eab2da10fb74cac1eab2da10fb74cac1eab2da10fb74cac1eab2da10fb74cac1eab2da10fb74cac1eab2da10fb74cac1eab2da10fb74cac1eab2da10fb74cac1eab2da10fb74cac1eabf8e5e9b21a40e18dde87ad3b397f946b4c41e97fe93686adb7ce3c4a759419abc9d3e49d2015ecaa02c730c0109b9fbb1ef6e77b994771b7ecad4a27389d318fd21ab7cd585086e0e13647d531665c4b23e6c8448ebb3380e2415097439d404746b8ae4e81acb9fa786047a80c779d5146b8ae4e81acb9fa6316863d10dbfa6971e7cb57bbcb8e0f2da10fb74cac1eab3fa629ade7ca93d45ce6a84395780e2a15b1adc30b19c0484f24917cd5f6b2ac",
 		"domain": ".avito.ru",
 		"path": "/",
 		"secure": false,
@@ -126,7 +127,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "_ym_isad",
-		"value": "1",
+		"value": "2",
 		"domain": ".avito.ru",
 		"path": "/",
 		"secure": false,
@@ -168,7 +169,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "cto_bundle",
-		"value": "Mwku6V8zJTJCTm84ZjBqSlZGM2VlMFcwR1RScGN5a05CWm02SHRMcUJCbTBFclRFc0lmWDBHU2JyVDZ6YjRmUW5meWFPajFDSDhFcWtKZml3YjZIZjZrbGtSS2xOclMwYkY0cjVnY1czNWxnWW1SUGJuUlFDMCUyQlltUXdseUNxdXlmdUROM3U",
+		"value": "uuNB719Na0RRdU9naXY5T2hxNlhKY1JRJTJGYjVYT2NzJTJGdkE3MFhXNHFGN1I0c24xTlBRU2dPaU5GSWpmMVpDTjNmRzJsdnlvMVJrY2w3M2ZVekhYQktvME53QXRCeFNDajMlMkJkTUZzN0FGemdROFZyV0g1VjU0NDRja0E2NEtYRFhpQnFXbw",
 		"domain": ".avito.ru",
 		"path": "/",
 		"secure": false,
@@ -185,7 +186,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "sessid",
-		"value": "0da41c26afdeb0a2541845e3eabcd293.1652278981",
+		"value": "7c194af692b71b92126d8620d14ad21b.1652646354",
 		"domain": ".avito.ru",
 		"path": "/",
 		"secure": true,
@@ -194,7 +195,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "showedStoryIds",
-		"value": "143-136-133-111-135-124-129-134-132-131-128-125-121-122-120-116-115-112-104-99-94",
+		"value": "144-143-142-136-133-111-135-124-129-134-132-131-128-125-121-122-120-116-115-112-104-99-94",
 		"domain": "www.avito.ru",
 		"path": "/",
 		"secure": false,
@@ -202,7 +203,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "sx",
-		"value": "H4sIAAAAAAAC%2FwTAUQrCMAwG4Lv8zz7Mrfljepw1qSAiw5XiKL273wBJFldWowkTLXSPzVxlKUXdkAc6Ms74vmr6vB9N1ovL0a7DlWfrv3juveKGQL5T1rSJknP%2BAwAA%2F%2F%2FsZrMpWwAAAA%3D%3D",
+		"value": "H4sIAAAAAAAC%2FwTASw7CMAwE0LvMmoXBeIxzG4hTofIVokFR1bvzVpBkTecUDOOR0fzSNNJNavUMlBUdBZ%2ForqPfHncZsy7Lbz6%2F7fT8SurrOg3s0FD2tIOrCnXb%2FgEAAP%2F%2Fltp6H1sAAAA%3D",
 		"domain": ".avito.ru",
 		"path": "/",
 		"secure": true,
@@ -220,7 +221,7 @@ export const cookies: puppeteer.Protocol.Network.CookieParam[] = [
 	},
 	{
 		"name": "v",
-		"value": "1652349361",
+		"value": "1652646099",
 		"domain": ".avito.ru",
 		"path": "/",
 		"secure": true,
